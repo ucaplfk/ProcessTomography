@@ -1,0 +1,21 @@
+\section{\label{sec:level1}Discussion and Conclusion} Comparing the $F_{G}$ results shown in Table \ref{tab:table1} for the QPU and the noisy QVM, on average show that the QVM overestimates the performance of the QPU. However, some values for $F_{G}$ are >1 which are unphysical suggesting numerical inaccuracies when applying the maximum likelihood algorithm. This algorithm takes the unphysical QPT matrix to a physical representation $^{[}$\citep{Chow2012UniversalQubits}$^{]}$. In Ref.[\citen{RigettiPyQuilDocumentation}] CZ $F_{G}$ is computed as 0.899 for qubits 8 and 13. This result is within 1 \% of $F_{G}$ calculated for CZ in Table.\ref{tab:table1}. In Table \ref{tab:table2} the lowest $F_{G}$ obtained for the random single gate sequence, of circuit depth 3, was 1.00. Therefore, the reliability of this data is questioned and a larger number of $F_{G}$ results obtained using QPT measurements would be required to obtain confidence limits. Only then could a reasonable error threshold be estimated for the quantum gates.  
+ 
+
+Fig. (\ref{fig:process_tomography_qpu_8_13_SWAP_500}) provides a means to visualise the errors which occur for the two-qubit gate operation compared to $U_{SWAP}$. Representation, such as in the Pauli transfer matrix presentation, allows properties of the $\mathcal{E}$ matrix to be easily observed. This includes determining if $\mathcal{E}$ is trace preserving or unital. However, using QPT does not allow the gate operation error to be dissociated from the state preparation and measurement errors. Therefore, randomised benchmarking is also used to determine the average gate error of $12.9 \times 10^{-3}$ for qubit 8 of the 19Q processor. This value compares closely with the most recent measurement $13.1 \times 10^{-3}$ stated by Rigetti $^{[}$\citep{RigettiPyQuilDocumentation}$^{]}$.
+
+
+In conclusion, the two fidelity analysis techniques dicussed each have their own advantages and disadvantages. QPT provides a detailed representation of the gate applied to the states. The choice of the matrix representation depends on the information required about $\mathcal{E}$. This technique applied to individual gates is particularly useful to test the experimental set-up is producing the gate accurately. Therefore, QPT should be repeated a large number of times on each gate to obtain $F_{G}$ with a confident limit. Conversely QPT measurements scale exponentially with the number of qubits, making QPT an unfeasible analysis technique for determining $F_{G}$ as $n$ increases. 
+
+The benefit of using randomised benchmarking to calculate $F_{G}$ is that different circuit errors can be measured individually by applying a fit model to the data. However, currently we have only completed randomised benchmarking for a single qubit so the next step would be to investigate $F_{G}$ for increased sequence lengths and develop a more robust function to complete fidelity analysis of two-qubits. The random sequence should include the ability to complete two-qubit Clifford gates. The scalability of randomised benchmarking can be further explored for use in obtaining the error threshold up, to a certain $n$, for the quantum game. Currently 1-$F_{G}$, where $F_{G}$ is taken from Table \ref{tab:table2} gives an estimate of the error threshold required to run the game on the QPU for a small selection of n and circuit depth.
+
+      
+
+
+%Need both process tomography and randomised benchmarking 
+%
+
+%Rigetti only allows process tomography of two qubit gates, need another way to explore larger numbers of qubits 
+%more robust longer randomised benchmarking 
+
+
+

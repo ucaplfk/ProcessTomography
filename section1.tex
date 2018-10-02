@@ -1,0 +1,47 @@
+\section{\label{sec:level1}Errors in Quantum Gate Implementation} Fault-tolerant quantum computing requires a gate fidelity of 99\% per step $^{[}$\citep{Barends2014SuperconductingTolerance}$^{]}$. QPT characterises the quantum operator $\mathcal{E}$ acting on input quantum states, $\ket{\psi_{j}}$ through state tomography measurements of $\mathcal{E}(\ket{\psi_{j}}\bra{\psi_{j}})$. State tomography enables estimation of an unknown state through measurements of the Pauli observables, $P_{i}$ when many copies of the density matrix, $\rho$ can be prepared. This is understood by considering the state density matrix can be written as
+
+%TrACE PRESERVING
+
+\begin{equation}
+\label{eq:densitymatrix}
+\rho = \frac{1}{2} \left [ 1 + p_{x} X + p_{y}Y + p_{z}Z \right ],
+\end{equation}
+
+where $p_{x}=\left \langle X \right \rangle = Tr(X \rho)$ and similarly for the other Pauli operators $^{[}$\citep{Nielsen2010QuantumInformation}$^{]}$. 
+
+The completely positive, trace-preserving map $\mathcal{E}$ is expressed as
+
+\begin{equation}
+\label{eq:superquantumoperator}
+\mathcal{E} (\rho) = \sum_{i} E_{i} \rho E_{i}^{\dagger}.
+\end{equation}
+
+where $E_{i}$ are the Kraus operators and conventionally the process matrix $\chi$ is used to represent $\mathcal{E}$. The $\chi$ formalism enables understanding of the mapping of $\mathcal{E}$ to $E_{i}$, where $E_{i}$ are not unique and can be written as Pauli operators $^{[}$\citep{Mohseni2008Quantum-processStrategies}$^{]}$. However, the Pauli transfer matrix provides an alternative representation where $\mathcal{R} (\rho)$ can be written as $P_{i}$ which is formed from tensor products of {I, X, Y, Z}
+
+\begin{equation}
+\label{eq:PTM}
+\mathcal{R}_{ij} = \frac{1}{d} Tr(P_{i}\mathcal{R} (P_{j})),
+\end{equation}
+
+where d=n$^{2}$ for n-qubit system. The input Pauli eigenvector $\vec{p}$ is mapped by $\mathcal{R}$ to a Pauli eigenvector output. Additionally, for the two-qubit gates, $\vec{p}$ elements give the expectation values of $\left \langle AB \right \rangle = \left \{ I, X, Y, Z \right \}$ $^{[}$\citep{Chow2012UniversalQubits}$^{]}$. 
+
+Moreover, to quantify circuit errors Horodecki et. al. derived the expression in Eq.(\ref{eq:averagedgatefidelity}) which relates the average gate fidelity to the average process fidelity of $\mathcal{E}$ acting on the $d^{2}$-dimensional Hilbert space $^{[}$\citep{Horodecki1998GeneralQuasi-distillation}$^{]}$
+
+\begin{equation}
+\label{eq:averagedgatefidelity}
+F_{G}=\frac{F_{p}d+1}{d+1},
+\end{equation}
+
+where,
+
+\begin{equation}
+\label{eq:processfidelity}
+F_{p}=\frac{Tr(\mathcal{E} U)}{Tr(\mathcal{E})Tr(U)}.
+\end{equation}
+
+Therefore it is clear from Eq.(\ref{eq:processfidelity}) that process fidelity is a measure of the overlap between the applied quantum operator and the ideal unitary matrix $^{[}$\citep{Micuda2014Process-fidelityStudy}$^{]}$. Despite QPT providing a means to fully characterise an applied gate, it becomes computationally costly to complete as the process scales as $2^{4n}$. Furthermore, QPT relies on errors in state preparation being comparatively small $^{[}$\citep{Ringbauer2017ExploringPhotons}$^{]}$. 
+
+Alternatively, a method to investigate average fidelity of the quantum processor is completed by the analytical technique, randomised benchmarking. In the case of a perfect quantum circuit, randomised benchmarking consists of applying a series of Clifford gates followed by the inverse to return the original input state $^{[}$\citep{Proctor2017WhatMeasures}$^{]}$. The average sequence fidelity as a function of gate length provides an estimate of the average gate fidelity, which is insensitive to preparation and measurement errors $^{[}$\citep{Magesan2011ScalableProcesses}$^{]}$. 
+
+
+
